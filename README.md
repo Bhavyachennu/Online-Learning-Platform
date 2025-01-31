@@ -1,3 +1,4 @@
+NAME:Bhavya Harshitha Chennu,COMPANY:COTECH IT SOLUTIONS,DURATION: Jan 05,2025 TO Feb 5,2025 ,DOMAIN:FRONTEND WEB DEVELOPMENT,Intern ID :CT08ISI
 # Online-Learning-Platform
 <img width="1439" alt="image" src="https://github.com/user-attachments/assets/7605df91-d123-4077-9832-be653918aa5f" />
 <img width="1439" alt="image" src="https://github.com/user-attachments/assets/03632dc6-4755-4f41-b1c3-5703c19ad5fb" />
