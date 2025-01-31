@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | Online Learning Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Online Learning Platform</div>
+    <nav>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="video.html">Lessons</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="certificate.html">Certificate</a>
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+
+  <section id="quiz-section">
+    <h1>Quiz: Web Development Basics</h1>
+
+    <form id="quiz-form">
+      <div id="quiz-questions"></div>
+
+      <button type="button" onclick="checkQuiz()">Submit Quiz</button>
+      <button type="button" onclick="window.location.href='certificate.html'">View Certificate</button>
+    </form>
+
+    <p id="quiz-result"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Online Learning Platform | All rights reserved</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        loadQuiz();
+    });
+
+    function loadQuiz() {
+        const quizQuestions = [
+            {
+                question: "1. What does HTML stand for?",
+                options: [
+                    { text: "Hyper Trainer Marking Language", correct: false },
+                    { text: "High Tech Modern Language", correct: false },
+                    { text: "HyperText Markup Language", correct: true },
+                    { text: "Home Tool Markup Language", correct: false }
+                ]
+            },
+            {
+                question: "2. Which CSS property is used to change text color?",
+                options: [
+                    { text: "font-style", correct: false },
+                    { text: "color", correct: true },
+                    { text: "background-color", correct: false },
+                    { text: "text-align", correct: false }
+                ]
+            }
+        ];
+
+        const quizContainer = document.getElementById("quiz-questions");
+        quizContainer.innerHTML = ""; // Clear previous content
+
+        quizQuestions.forEach((q, index) => {
+            const questionDiv = document.createElement("div");
+            questionDiv.classList.add("question");
+
+            let questionHTML = `<p>${q.question}</p>`;
+            q.options.forEach(option => {
+                questionHTML += `
+                    <label>
+                        <input type="radio" name="q${index + 1}" value="${option.correct}">
+                        ${option.text}
+                    </label><br>
+                `;
+            });
+
+            questionDiv.innerHTML = questionHTML;
+            quizContainer.appendChild(questionDiv);
+        });
+    }
+
+    function checkQuiz() {
+        let score = 0;
+        const totalQuestions = 2;
+
+        const answers = document.querySelectorAll("input[type='radio']:checked");
+
+        answers.forEach(answer => {
+            if (answer.value === "true") {
+                score++;
+            }
+        });
+
+        document.getElementById("quiz-result").innerText = `Your Score: ${score} / ${totalQuestions}`;
+    }
+  </script>
+
+</body>
+</html>
